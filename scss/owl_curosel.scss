@@ -1,0 +1,75 @@
+@import "../vendor/node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+.owl-carousel {
+  display: flex;
+
+
+  .item {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    padding: 3px;
+    margin: 3px;
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .owl-stage-outer {
+    display: flex;
+  }
+
+  .owl-stage {
+    display: flex;
+  }
+
+  .owl-item {
+    display: flex;
+  }
+
+  .card-title {
+    color: #A40A48;
+    font-weight: bold;
+    display: inline;
+    font-size: 1.2rem;
+  }
+
+  .card {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    overflow: hidden;
+    height: 100%;
+    margin-left: 20px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+}
+
+/* Desktop view */
+
+@include media-breakpoint-up(lg) {
+  .owl-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .owl-carousel .item {
+    display: block;
+  }
+
+  .owl-stage-outer,
+  .owl-stage,
+  .owl-item {
+    display: block;
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    width: 100%;
+  }
+}

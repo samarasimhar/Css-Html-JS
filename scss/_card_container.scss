@@ -1,0 +1,82 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color:red;
+    border-radius: 15px;
+}
+
+
+.card-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+
+   
+    .card-title {
+        color:#A40A48;
+        font-weight: bold;
+        display: inline;
+        font-size: 1.2rem;
+    }
+    .card {
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        overflow: hidden;
+        height:100%;
+        margin-left: 20px;
+    }
+
+
+
+    @include media-breakpoint-up(sm) {
+
+        .card-img-top {
+          
+            width: 100%;
+            border-radius: inherit;
+
+            object-fit: cover;
+
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .card-title {
+           font-size:1.3rem;
+        }
+
+        .card-text {
+            font-size: 1.3rem;
+        }
+
+    }
+
+    @include media-breakpoint-up(xl) {
+        .card-title {
+            font-size: 1.3rem;
+        }
+        .card-text {
+            font-size: 1.3rem;
+        }
+
+    }
+
+}
+
+
+
+
+
+
+// curosel 
+// @include media-breakpoint-up(md){
+//     .carousel-inner{
+//         display: flex;
+//     }
+//     .carousel-item{
+//         display: block;
+//         margin-right:0;
+//         flex:0 0 calc(100%/3);
+//     }
+// }
+
+ 
