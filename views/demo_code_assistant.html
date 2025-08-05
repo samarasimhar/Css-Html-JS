@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Assistant Container - Demo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Code Assistant CSS -->
+    <link rel="stylesheet" href="../css/code_assistant.css">
+    <style>
+        body {
+            font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .demo-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-header">
+        <h1>Code Assistant Container</h1>
+        <p>Interactive AI-powered code assistance component</p>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+                <!-- Code Assistant Container -->
+                <div class="code-assistant-container">
+                    <!-- Header -->
+                    <div class="assistant-header">
+                        <div class="header-content">
+                            <div class="assistant-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="assistant-info">
+                                <h3 class="assistant-title">Code Assistant</h3>
+                                <p class="assistant-status">
+                                    <span class="status-indicator active"></span>
+                                    Ready to help
+                                </p>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-minimize" data-toggle="minimize">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button class="btn-expand" data-toggle="expand">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages Area -->
+                    <div class="assistant-chat-area">
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- Welcome Message -->
+                            <div class="message assistant-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        <p>👋 Hello! I'm your code assistant. I can help you with:</p>
+                                        <ul class="feature-list">
+                                            <li><i class="fas fa-code"></i> Code review and suggestions</li>
+                                            <li><i class="fas fa-bug"></i> Debugging assistance</li>
+                                            <li><i class="fas fa-lightbulb"></i> Code optimization tips</li>
+                                            <li><i class="fas fa-book"></i> Documentation generation</li>
+                                        </ul>
+                                        <p>What would you like to work on today?</p>
+                                    </div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+
+                            <!-- Example User Message -->
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        <p>Can you help me optimize this JavaScript function?</p>
+                                        <div class="code-snippet">
+                                            <pre><code>function findUser(users, id) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].id === id) {
+            return users[i];
+        }
+    }
+    return null;
+}</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="message-time">2 minutes ago</div>
+                                </div>
+                                <div class="message-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+
+                            <!-- Example Assistant Response -->
+                            <div class="message assistant-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        <p>Great question! Here's an optimized version using the <code>find()</code> method:</p>
+                                        <div class="code-snippet improved">
+                                            <div class="code-header">
+                                                <span class="code-title">Optimized Solution</span>
+                                                <button class="copy-btn" data-copy="findUser">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code>const findUser = (users, id) => users.find(user => user.id === id) || null;</code></pre>
+                                        </div>
+                                        <div class="improvement-notes">
+                                            <h5><i class="fas fa-star"></i> Improvements:</h5>
+                                            <ul>
+                                                <li>More concise and readable</li>
+                                                <li>Uses modern ES6 syntax</li>
+                                                <li>Leverages built-in array method</li>
+                                                <li>Better performance for large arrays</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="message-time">1 minute ago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" data-action="review">
+                                <i class="fas fa-search"></i>
+                                Code Review
+                            </button>
+                            <button class="quick-action-btn" data-action="debug">
+                                <i class="fas fa-bug"></i>
+                                Debug Help
+                            </button>
+                            <button class="quick-action-btn" data-action="optimize">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Optimize
+                            </button>
+                            <button class="quick-action-btn" data-action="explain">
+                                <i class="fas fa-question-circle"></i>
+                                Explain Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="assistant-input-area">
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <textarea 
+                                    id="userInput" 
+                                    placeholder="Ask me about your code, paste a snippet, or describe what you need help with..."
+                                    rows="1"
+                                    maxlength="2000"></textarea>
+                                <div class="input-actions">
+                                    <button class="attach-code-btn" title="Attach code file">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                    <button class="send-btn" id="sendMessage" title="Send message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="input-footer">
+                                <span class="char-count">0/2000</span>
+                                <span class="ai-notice">
+                                    <i class="fas fa-info-circle"></i>
+                                    AI-powered assistance
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Instructions -->
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card" style="background: rgba(255,255,255,0.1); border: none; backdrop-filter: blur(10px);">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">✨ Try the Features</h5>
+                        <ul class="list-unstyled">
+                            <li>🔍 <strong>Interactive Chat:</strong> Type messages and get AI responses</li>
+                            <li>⚡ <strong>Quick Actions:</strong> Click the buttons for common tasks</li>
+                            <li>📎 <strong>File Upload:</strong> Attach code files for review</li>
+                            <li>📋 <strong>Copy Code:</strong> Click copy buttons on code snippets</li>
+                            <li>🎚️ <strong>UI Controls:</strong> Use minimize/expand buttons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/code_assistant.js"></script>
+</body>
+
+</html>
